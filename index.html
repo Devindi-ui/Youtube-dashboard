@@ -18,9 +18,11 @@
             <p>Get insights into ny youtube channel's performance and 
                 watch recent videos</p>
         </header>
-    </div>
 
-    <div class="error-message" id="errorMessage">
+        <div class="error-message" id="errorMessage">
+        
+    </div>
+    
         <section class="search-section">
             <form id="searchForm" class="search-form">
                 <input type="text" class="search-input" id="channelInput" 
@@ -28,6 +30,23 @@
                 <button type="submit" class="search-btn">Analyze Channel</button>
             </form>
         </section>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Fetching Channel Data...</p>
+        </div>
+
+        <section class="channel-info" id="channelInfo" style="display: none;">
+            <!-- channel data will be loaded here -->
+        </section>
+
+        <section class="videos-section">
+            <h2>Latest Videos</h2>
+            <div class="video-grid" id="videoGrid">
+                <!-- video cards will be loaded here -->
+            </div>
+        </section>
+
     </div>
     
 
