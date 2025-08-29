@@ -8,7 +8,10 @@ const channelInfo = document.getElementById('channelInfo');
 const videosGrid = document.getElementById('videoGrid');
 const errorMessage = document.getElementById('errorMessage');
 const loading = document.getElementById('loading');
-// const videoPlayerSection = document.getElementById('');
+const videoPlayerSection = document.getElementById('videoPlayerSection');
+const videoPlayer = document.getElementById('videoPlayer');
+const playerVideoTitle = document.getElementById('playerVideoTitle');
+const closePlayer = document.getElementById('closePlayer');
 
 let currentChannelData = null;
 let currentVideosData = [];
@@ -30,6 +33,18 @@ searchForm.addEventListener('submit', function(e){
         searchChannel(channelName);
     }
 });
+
+closePlayer.addEventListener('click', function(){
+    videoPlayerSection.style.display = 'none';
+    videoPlayer.src = '';
+});
+
+// videoPlayerSection.addEventListener('click', function(){
+//     if(e.target === videoPlayerSection){
+//         videoPlayerSection.style.display = 'none';
+//         videoPlayer.src = '';
+//     }
+// })
 
 async function searchChannel(channelName){
     try {
@@ -162,7 +177,21 @@ function displayVideos(videos){
                 </div>
             </div>
         `;
-    })
+    }).join('');
+
+    document.querySelectorAll('.video-card').forEach(card => {
+        card.addEventListener('click', function(){
+            const videoId = this.getAttribute('data-video-id');
+            const videoTitle = this.getAttribute('data-video-title');
+            playVideo(videoId, videoTitle);
+        });
+    });
+}
+
+function playVideo(videoId, title){
+    playerVideoTitle.textContent = title
+    videoPlayer.src = `https://youtube.com/embed/${videoId}?autoplay=1`
+    videoPlayerSection.style.display = 'flex';
 }
 
 function clearResults(){
