@@ -77,6 +77,7 @@ async function searchChannel(channelName){
 
 //displayChannelInfo
 function displayChannelInfo(channel){
+    loading.style.display = 'none';
     const stats = channel.statistics;
     const formatNumber = num => parseInt(num).toLocaleString();
 
@@ -88,12 +89,18 @@ function displayChannelInfo(channel){
         <h2>${channel.snippet.title}</h2>
         <p>${channel.snippet.description || 'No description available'}</p>
         <div class="channel-stats">
-            <div class="stat-number">${formatNumber(stats.subscriberCount)}</div>
-            <div class="stat-label">Videos</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">${formatNumber(stats.viewCount)}</div>
-            <div class="stat-label">Views</div>
+            <div class="stat">
+                <div class="stat-number">${formatNumber(stats.subscriberCount)}</div>
+                <div class="stat-label">Subscribers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">${formatNumber(stats.videoCount)}</div>
+                <div class="stat-label">Videos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">${formatNumber(stats.viewCount)}</div>
+                <div class="stat-label">Views</div>
+            </div>
         </div>
         </div>
     `;
