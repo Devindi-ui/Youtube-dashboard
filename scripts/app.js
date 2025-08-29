@@ -39,12 +39,12 @@ closePlayer.addEventListener('click', function(){
     videoPlayer.src = '';
 });
 
-// videoPlayerSection.addEventListener('click', function(){
-//     if(e.target === videoPlayerSection){
-//         videoPlayerSection.style.display = 'none';
-//         videoPlayer.src = '';
-//     }
-// })
+videoPlayerSection.addEventListener('click', function(e){
+    if(e.target === videoPlayerSection){
+        videoPlayerSection.style.display = 'none';
+        videoPlayer.src = '';
+    }
+})
 
 async function searchChannel(channelName){
     try {
@@ -136,7 +136,7 @@ function displayChannelInfo(channel){
 
 async function fetchVideos(playlistId){
     try {
-        const videoUrl = `${BASE_URL}playlistItems?part=snippet&maxResults=12&playlistId=${playlistId}&key=${API_KEY}`;
+        const videoUrl = `${BASE_URL}playlistItems?part=snippet&maxResults=50&playlistId=${playlistId}&key=${API_KEY}`;
 
         const videosResponse = await fetch(videoUrl);
         const videosData = await videosResponse.json();
