@@ -108,7 +108,7 @@ header p{
 }
 
 .loading{
-    display: block;
+    display: none;
     text-align: center;
     padding: 40px;
 }
@@ -131,6 +131,26 @@ header p{
     }
 
     100%{
-        transform: 360deg;
+        transform: rotate(360deg);
     }
+}
+
+/* channel info section */
+.channel-info{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    background-color: var(--dark-light);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.channel-thumbnail{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
 }
